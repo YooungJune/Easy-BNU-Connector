@@ -14,13 +14,15 @@ methods.py 是由 methods.js 通过 Js2Py 转换成的，methods.js 取自认证
 
 # 更新:
 
+不同于 v0.1.0 ，现在 Easy-BNU-Connector.cmd 运行时，CMD 会在一闪之后最小化
+
 现在可以双击 setup.cmd 进行安装
 
 安装时，setup.cmd、setup.py 和文件夹 easy_bnu_connector 应在同一目录下
 
 安装时，若未安装所需模块，需根据命令行提示确认安装
 
-若 setup.cmd、setup.py 和文件夹 easy_bnu_connector 全部消失，出现Easy-BNU-Connector.cmd，说明安装成功
+若 setup.cmd、setup.py 和文件夹 easy_bnu_connector 全部消失，出现 Easy-BNU-Connector.cmd，说明安装成功
 
 否则安装失败，可检查是否连接网络后再次运行 setup.cmd 进行安装
 
@@ -28,8 +30,6 @@ methods.py 是由 methods.js 通过 Js2Py 转换成的，methods.js 取自认证
 # 未来计划:
 
 添加详尽的Docstring
-
-使 Easy-BNU-Connector.cmd 运行时不出现 CMD 界面
 
 开机自启
 
