@@ -34,6 +34,8 @@ methods.py 是由 methods.js 通过 Js2Py 转换成的，methods.js 取自认证
 
 跨平台
 
+支持Python2
+
 ……
 
 
