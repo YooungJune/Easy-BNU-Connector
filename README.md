@@ -12,7 +12,7 @@ methods.py 是由 methods.js 通过 Js2Py 转换成的，methods.js 取自认证
 十分感谢 YooungJune 的测试
 
 
-# 更新
+# 更新:
 
 现在可以双击 setup.cmd 进行安装
 
