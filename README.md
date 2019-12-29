@@ -4,7 +4,7 @@
 
 所需模块：Requests、BeautifulSoup4
 
-methods.py 是由 methods.js 通过 Js2Py 转换成的，methods.js取自认证网关
+methods.py 是由 methods.js 通过 Js2Py 转换成的，methods.js 取自认证网关
 
 程序运行不需有 methods.js
 
