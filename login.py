@@ -2,7 +2,10 @@
 Author: GasinAn
 '''
 import os
-import tkinter
+try:
+    import tkinter
+except:
+    import Tkinter as tkinter
 
 from requests import request
 from bs4 import BeautifulSoup
