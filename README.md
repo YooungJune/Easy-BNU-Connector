@@ -2,14 +2,16 @@
 
 连接北京师范大学校园网的Python程序
 
-所需模块：Requests、BeautifulSoup4
+所需模块：Requests、BeautifulSoup4、Js2Py
 
 methods.py 是由 methods.js 通过 Js2Py 转换成的，methods.js 取自认证网关
 
 程序运行不需有 methods.js
 
+Linux 用户需安装 Tkinter 
 
-感谢 YooungJune 的测试
+
+十分感谢 YooungJune 的测试
 
 
 未来计划:
