@@ -1,4 +1,4 @@
-# Easy-BNU-Connector
+# Easy-BNU-Connector 0.0.0
 
 连接北京师范大学校园网的Python程序
 
