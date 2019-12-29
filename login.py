@@ -1,4 +1,7 @@
-﻿import os
+﻿'''
+Author: GasinAn
+'''
+import os
 import tkinter
 
 from requests import request
