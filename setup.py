@@ -25,10 +25,12 @@ else:
 
 print('Setting up...')
 easy_bnu_connector_path = sys.path[5]+'\\easy_bnu_connector'
+with open('easy_bnu_connector\\Easy-BNU-Connector.cmd', 'w') as f:
+    f.write('python '+easy_bnu_connector_path+'\\login.py\t\nexit')
 os.system('mkdir '+easy_bnu_connector_path)
 os.system('move /y easy_bnu_connector\\* '+easy_bnu_connector_path)
 os.system('rmdir easy_bnu_connector')
 with open('Easy-BNU-Connector.cmd', 'w') as f:
-    f.write('python '+easy_bnu_connector_path+'\\login.py\t\nexit')
+    f.write('start /min '+easy_bnu_connector_path+'\\Easy-BNU-Connector.cmd')
 os.system('del setup.cmd')
 os.system('del setup.py')
