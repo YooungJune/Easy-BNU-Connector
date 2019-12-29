@@ -9,6 +9,12 @@ methods.py 是由 methods.js 通过 Js2Py 转换成的，methods.js 取自认证
 程序运行不需有 methods.js
 
 
+警告
+
+不支持 Python2 ，原因在于 tkinter 库在 Python2 中名为Tkinter
+
+感谢 YooungJune 的测试
+
 
 未来计划:
 
