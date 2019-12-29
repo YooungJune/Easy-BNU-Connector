@@ -29,7 +29,5 @@ methods.py 是由 methods.js 通过 Js2Py 转换成的
 
 采用严重不符合规范的代码
 
-不使用认证网关内的JavaScript
-
-和由认证网关内的JavaScript转换成的Python程序
+不使用认证网关内的JavaScript和由认证网关内的JavaScript转换成的Python程序
 
