@@ -14,6 +14,10 @@ methods.py 是由 methods.js 通过 Js2Py 转换成的
 
 添加详尽的Docstring
 
+改换成App形式
+
+开机自启
+
 自动打开WLAN开关
 
 禁止浏览器自动跳出登录界面
@@ -21,6 +25,8 @@ methods.py 是由 methods.js 通过 Js2Py 转换成的
 添加注销、自助服务功能
 
 添加用户名错误、密码错误的提示
+
+跨平台
 
 ……
 
