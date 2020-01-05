@@ -1,5 +1,18 @@
-﻿import os
-import tkinter
+﻿'''
+Author: GasinAn
+'''
+# !/usr/bin/env python
+# -*- coding: UTF-8 -*-
+
+import os
+try:
+    import tkinter
+except:
+    import Tkinter as tkinter
+try:
+    import _thread
+except:
+    import thread as _thread
 
 from requests import request
 from bs4 import BeautifulSoup
@@ -7,6 +20,8 @@ from bs4 import BeautifulSoup
 from methods import methods
 
 
+BROWSERS = {'MicrosoftEdge.exe', 'iexplorer.exe', 'chrome.exe',
+            '360chrome.exe', 'liebao.exe'}
 BNU_STUDENT_CONNECT_COMMAND = 'netsh wlan connect BNU-Student'
 BNU_CONNECT_COMMAND = 'netsh wlan connect BNU'
 BNU_URL = 'http://www.bnu.edu.cn'
@@ -16,6 +31,12 @@ ENC = 'srun_bx1'
 NUM = '200'
 TYPE = '1'
 
+
+def ban_browsers_come_out():
+    while True:
+        for browser in BROWSERS:
+            if os.system('taskkill /im '+browser+' /f') is 0:
+                return 0
 
 def login():
     try:
@@ -49,27 +70,35 @@ def login():
         chkstr += token+TYPE
         chkstr += token+i
         password = '{MD5}'+hmd5
-        chksum = methods.sha1(chkstr)
-
         params = {'callback': 'jQuery',
                 'action': 'login',
                 'username': username,
                 'password': password,
                 'ac_id': ac_id,
                 'ip': ip,
-                'chksum': chksum,
+                'chksum': methods.sha1(chkstr),
                 'info': i,
                 'n': NUM,
                 'type': TYPE,
                 'os': 'Windows+10',
                 'name': 'Windows',
                 'double_stack': '0'}
+
         r = request('GET', srun_portal_pc_url+SRUN_PORTAL_URL, params=params)
-        text_title.set('登录成功')      
+        if r.text[61:72] == 'login_error':
+            if r.text[94] == 'P':
+                text_title.set('用户名或密码错误')
+            elif r.text[94] == 'U':
+                text_title.set('用户不存在')
+            else:
+                text_title.set('登录失败')
+        else:
+            text_title.set('登录成功')
 
+    except TypeError:
+        text_title.set('用户已在线')
     except:
-        text_title.set('登录失败')
-
+        text_title.set('无法连接校园网')
 
 gui = tkinter.Tk()
 gui.title('')
@@ -85,19 +114,14 @@ l_password = tkinter.Label(gui, text='密码')
 l_password.grid(row=2, column=0)
 e_password = tkinter.Entry(gui, show='A')
 e_password.grid(row=2, column=1)
-text_button = tkinter.StringVar()
-b_login = tkinter.Button(gui, textvariable=text_button, command=login)
+b_login = tkinter.Button(gui, text='登录', command=login)
 b_login.grid(row=3, columnspan=2)
 
 if os.system(BNU_STUDENT_CONNECT_COMMAND) is 0:
     text_title.set('BNU-Student')
-    text_button.set('登录')
-    gui.mainloop()
 elif os.system(BNU_CONNECT_COMMAND) is 0:
     text_title.set('BNU')
-    text_button.set('登录')
-    gui.mainloop()
 else:
     text_title.set('无法连接校园网')
-    text_button.set('登录')
-    gui.mainloop()
+_thread.start_new_thread(ban_browsers_come_out, ())
+gui.mainloop()
